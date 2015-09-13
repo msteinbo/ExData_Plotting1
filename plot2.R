@@ -1,4 +1,4 @@
-# Plotting Histogram of global active Power
+# Plotting Linechart of global active Power
 #
 # Reading data
 my_data <- read.csv(
@@ -23,7 +23,7 @@ my_sdata <- subset(
 # Transform column 'Global_active_power' to Double
 my_sdata$Global_active_power <- as.numeric(as.character(my_sdata$Global_active_power))
 
-# Plotting the histogram
+# Plotting the chart
 plot(my_sdata$Date_Time,
      my_sdata$Global_active_power,
      type="l",

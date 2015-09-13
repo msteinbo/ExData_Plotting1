@@ -1,4 +1,4 @@
-# Plotting Histogram of global active Power
+# Plotting several line-diagrams on same panel (using lines()) 
 #
 # Reading data
 my_data <- read.csv(
@@ -22,12 +22,12 @@ my_sdata <- subset(
          & Sub_metering_3 != "?"
 )
 
-# Transform column 'Global_active_power' to Double
+# Transform column necessary variables to Double
 my_sdata$Sub_metering_1 <- as.numeric(as.character(my_sdata$Sub_metering_1))
 my_sdata$Sub_metering_2 <- as.numeric(as.character(my_sdata$Sub_metering_2))
 my_sdata$Sub_metering_3 <- as.numeric(as.character(my_sdata$Sub_metering_3))
 
-# Plotting the histogram
+# Plotting the empty diagram
 plot(my_sdata$Date_Time,
      my_sdata$Sub_metering_1,
      type = "n",
@@ -35,17 +35,21 @@ plot(my_sdata$Date_Time,
      ylab = "Energy sub metering"
 )
 
+# Adding 1st line
 lines(my_sdata$Date_Time,
      my_sdata$Sub_metering_1)
 
+# Adding 2nd line
 lines(my_sdata$Date_Time,
        my_sdata$Sub_metering_2,
        col="red")
 
+# Adding 3rd line
 lines(my_sdata$Date_Time,
       my_sdata$Sub_metering_3,
       col="blue")
 
+# Adding legend
 legend('topright', lty=1, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),  col=c("black", 'red', 'blue'))
 
 # Saving to File

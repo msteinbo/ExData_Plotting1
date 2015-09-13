@@ -1,4 +1,4 @@
-# 4th Plot
+# 4th Plot (with 4 graphs on same page)
 #
 # Reading data
 my_data <- read.csv(
